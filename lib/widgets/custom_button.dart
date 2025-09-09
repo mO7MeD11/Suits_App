@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:suits_app/const.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.onPressed, required this.text});
+  const CustomButton({
+    super.key,
+    required this.onPressed,
+    required this.text,
+    this.icon,
+  });
   final Function() onPressed;
   final String text;
+  final Icon? icon;
   @override
   Widget build(BuildContext context) {
     return Padding(

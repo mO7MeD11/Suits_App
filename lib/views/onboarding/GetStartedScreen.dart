@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suits_app/const.dart';
 import 'package:suits_app/views/login_view/login.dart';
-import 'package:suits_app/views/widgets/custom_button.dart';
+import 'package:suits_app/widgets/custom_button.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
