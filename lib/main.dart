@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:suits_app/views/splash_view.dart';
 
 void main() {
   runApp(const Suits());
@@ -9,6 +10,6 @@ class Suits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  MaterialApp( home: SplashView(), debugShowCheckedModeBanner: false, ) ;
   }
 }
