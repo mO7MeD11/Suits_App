@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suits_app/views/Home_Views/home.dart';
+import 'package:suits_app/views/onboarding/GetStartedScreen.dart';
 
 class Onboardingscreen extends StatefulWidget {
   const Onboardingscreen({super.key});
@@ -51,7 +52,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (BuildContext context) {
-                            return Home();
+                            return GetStartedScreen();
                           },
                         ),
                       );
@@ -138,7 +139,7 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (BuildContext context) {
-                                return Home();
+                                return GetStartedScreen();
                               },
                             ),
                           );

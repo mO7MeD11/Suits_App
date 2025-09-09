@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suits_app/views/onboarding_screen.dart';
+import 'package:suits_app/views/onboarding/onboarding_screen.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
