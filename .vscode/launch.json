@@ -1,10 +1,11 @@
 {
     "configurations": [
+        
         {
-            "name": "Flutter (lib\\views\\widgets\\custom_Social_Button.dart)",
+            "name": "Flutter",
             "type": "dart",
             "request": "launch",
-            "program": "lib\\views\\widgets\\custom_Social_Button.dart"
+            "program": "lib/main.dart"
         }
     ]
 }

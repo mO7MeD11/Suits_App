@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:suits_app/const.dart';
-import 'package:suits_app/widgets/custom_Social_Button.dart';
 import 'package:suits_app/widgets/custom_button.dart';
 import 'package:suits_app/widgets/custom_text_form.dart';
 

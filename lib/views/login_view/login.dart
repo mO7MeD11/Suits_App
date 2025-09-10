@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:suits_app/views/Home_Views/home.dart';
+import 'package:suits_app/views/login_view/success.dart';
 import 'package:suits_app/views/signup_view/signup.dart';
 import 'package:suits_app/widgets/custom_Social_Button.dart';
+//import 'package:suits_app/widgets/custom_Social_Button.dart';
 import 'package:suits_app/widgets/custom_button.dart';
 import 'package:suits_app/widgets/custom_text_form.dart';
 
@@ -83,12 +84,11 @@ class _LoginState extends State<Login> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(content: Text('Login Successful')),
                       );
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Home();
-                          },
-                        ),
+
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) => const SuccessDialog(),
                       );
                     }
                   },
