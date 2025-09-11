@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:suits_app/const.dart';
+import 'package:suits_app/views/login_view/login.dart';
+import 'package:suits_app/views/login_view/success.dart';
 import 'package:suits_app/widgets/custom_button.dart';
 import 'package:suits_app/widgets/custom_text_form.dart';
 
@@ -130,6 +132,18 @@ class _SignupState extends State<Signup> {
                     ScaffoldMessenger.of(
                       context,
                     ).showSnackBar(SnackBar(content: Text('success')));
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return SuccessDialog(
+                          title: 'Success',
+                          description:
+                              'Your account has been successfully \nregistered',
+                          buttonText: 'Login',
+                          goto: Login(),
+                        );
+                      },
+                    );
                   }
                 },
                 text: 'Sign up',

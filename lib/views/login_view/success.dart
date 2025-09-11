@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:suits_app/const.dart';
+import 'package:suits_app/views/Home_Views/home.dart';
 
 class SuccessDialog extends StatelessWidget {
-  const SuccessDialog({super.key});
-
+  const SuccessDialog({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.buttonText, required this.goto,
+  });
+  final String title;
+  final String description;
+  final String buttonText;
+  final Widget goto;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -21,16 +30,16 @@ class SuccessDialog extends StatelessWidget {
             ),
             const SizedBox(height: 24),
 
-            const Text(
-              "Yeay! Welcome Back",
+            Text(
+              title,
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
 
             const SizedBox(height: 8),
 
-            const Text(
-              "Once again you login successfully\ninto medidoc app",
+            Text(
+              description,
               style: TextStyle(fontSize: 14, color: Colors.grey),
               textAlign: TextAlign.center,
             ),
@@ -48,10 +57,17 @@ class SuccessDialog extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return goto ;
+                      },
+                    ),
+                  );
                 },
-                child: const Text(
-                  "Go to home",
+                child: Text(
+                  buttonText,
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),

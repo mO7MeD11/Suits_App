@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:suits_app/views/Home_Views/home.dart';
+import 'package:suits_app/views/forgot_password/forgot_password.dart';
 import 'package:suits_app/views/login_view/success.dart';
 import 'package:suits_app/views/signup_view/signup.dart';
 import 'package:suits_app/widgets/custom_Social_Button.dart';
@@ -14,10 +16,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final formkye = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final formkye = GlobalKey<FormState>();
-
     return Scaffold(
       backgroundColor: Color(0xffF4F5F7),
       appBar: AppBar(
@@ -42,7 +43,7 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 30),
                 CustomTextForm(
                   hint: 'enter your email',
-                  icon: Icon(Icons.email),
+                  icon: Icon(Icons.email, color: Color(0xffA1A8B0)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Email is required";
@@ -53,7 +54,7 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 10),
                 CustomTextForm(
                   hint: 'enter your password',
-                  icon: Icon(Icons.lock),
+                  icon: Icon(Icons.lock, color: Color(0xffA1A8B0)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'password is required';
@@ -67,7 +68,14 @@ class _LoginState extends State<Login> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ForgotPassword(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Forgot Password?',
                           style: TextStyle(color: Colors.red),
@@ -88,7 +96,13 @@ class _LoginState extends State<Login> {
                       showDialog(
                         context: context,
                         barrierDismissible: false,
-                        builder: (context) => const SuccessDialog(),
+                        builder: (context) => const SuccessDialog(
+                          title: 'Yeay! Welcome Back',
+                          description:
+                              'Once again you login successfully \ninto medidoc app',
+                          buttonText: 'Go to home',
+                          goto: Home(),
+                        ),
                       );
                     }
                   },

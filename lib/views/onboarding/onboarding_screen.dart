@@ -31,17 +31,28 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
   ];
 
   int isSelected = 0;
+  final PageController controller = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Image.asset(
-            width: double.infinity,
-            height: double.infinity,
-            image[isSelected],
-            fit: BoxFit.cover,
+          PageView.builder(
+            itemCount: image.length,
+            controller: controller,
+            onPageChanged: (value) {
+              isSelected = value;
+              setState(() {});
+            },
+            itemBuilder: (BuildContext context, int index) {
+              return Image.asset(
+                width: double.infinity,
+                height: double.infinity,
+                image[index],
+                fit: BoxFit.cover,
+              );
+            },
           ),
           Positioned(
             top: 40,
@@ -94,24 +105,30 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    isSelected != 0
-                        ? OutlinedButton(
-                            onPressed: () {
-                              if (isSelected > 0) {
-                                isSelected -= 1;
-                              }
-                              setState(() {});
-                            },
-                            style: OutlinedButton.styleFrom(
-                              fixedSize: Size(20, 55),
-                              shape: CircleBorder(),
-                            ),
-                            child: Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.white,
-                            ),
-                          )
-                        : SizedBox(),
+                    AbsorbPointer(
+                      absorbing: isSelected == 0 ? true : false,
+                      child: Opacity(
+                        opacity: isSelected == 0 ? 0 : 1,
+                        child: OutlinedButton(
+                          onPressed: () {
+                            if (isSelected > 0) {
+                              controller.previousPage(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.linear,
+                              );
+                            }
+                          },
+                          style: OutlinedButton.styleFrom(
+                            fixedSize: Size(20, 55),
+                            shape: CircleBorder(),
+                          ),
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
 
                     Spacer(),
                     ...List.generate(3, (index) {
@@ -134,7 +151,10 @@ class _OnboardingscreenState extends State<Onboardingscreen> {
                     OutlinedButton(
                       onPressed: () {
                         if (isSelected < 2) {
-                          isSelected += 1;
+                          controller.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.linear,
+                          );
                         } else {
                           Navigator.of(context).push(
                             MaterialPageRoute(
