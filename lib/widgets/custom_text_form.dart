@@ -4,21 +4,25 @@ class CustomTextForm extends StatelessWidget {
   const CustomTextForm({
     super.key,
     required this.hint,
-     
     this.controller,
-    this.validator,   required this.prefixIconicon,   this.suffixicon,
+    this.validator,
+    required this.prefixIconicon,
+    this.suffixicon,
+    this.showText = true,
   });
   final String hint;
   final Icon prefixIconicon;
-  final Icon? suffixicon;
+  final Widget? suffixicon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final bool? showText;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: TextFormField(
+        obscureText: !showText!, //🤯
         controller: controller,
         validator: validator,
 
@@ -30,7 +34,8 @@ class CustomTextForm extends StatelessWidget {
           hintStyle: TextStyle(color: Color(0xffA1A8B0)),
           hintText: hint,
           prefixIcon: prefixIconicon,
-          suffix: suffixicon  ,
+          suffixIcon: suffixicon,
+
           filled: true,
           fillColor: Color(0xffFFFFFF),
           enabledBorder: OutlineInputBorder(

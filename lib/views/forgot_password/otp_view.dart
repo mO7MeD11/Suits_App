@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:suits_app/const.dart';
+import 'package:suits_app/views/forgot_password/create_new_password.dart';
 import 'package:suits_app/widgets/custom_button.dart';
 
-class OtpView extends StatelessWidget {
+class OtpView extends StatefulWidget {
   const OtpView({super.key});
 
+  @override
+  State<OtpView> createState() => _OtpViewState();
+}
+
+class _OtpViewState extends State<OtpView> {
+  String otpCode = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +49,7 @@ class OtpView extends StatelessWidget {
                 length: 4,
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
-                  print(value);
+                  otpCode = value;
                 },
                 pinTheme: PinTheme(
                   shape: PinCodeFieldShape.box,
@@ -60,7 +67,27 @@ class OtpView extends StatelessWidget {
               ),
             ),
             SizedBox(height: 32),
-            CustomButton(onPressed: () {}, text: 'Verify'),
+            CustomButton(
+              onPressed: () {
+                if (otpCode.length == 4) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return CreateNewPassword();
+                      },
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Please enter the 4-digit code'),
+                    ),
+                  );
+                }
+              },
+              text: 'Verify',
+            ),
             SizedBox(height: 24),
             Center(
               child: Text.rich(
