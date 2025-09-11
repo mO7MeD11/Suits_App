@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:suits_app/const.dart';
+import 'package:suits_app/views/forgot_password/otp_view.dart';
 import 'package:suits_app/widgets/custom_button.dart';
 import 'package:suits_app/widgets/custom_text_form.dart';
 
@@ -95,7 +96,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   }
                   return null;
                 },
-                icon: emailSelected
+                prefixIconicon: emailSelected
                     ? Icon(Icons.email, color: Colors.red)
                     : Icon(Icons.phone, color: Colors.red),
                 hint: emailSelected ? 'enter your email' : 'enter your phone',
@@ -103,7 +104,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               SizedBox(height: 32),
               CustomButton(
                 onPressed: () {
-                  formKye.currentState!.validate();
+                  if (formKye.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return OtpView();
+                        },
+                      ),
+                    );
+                  }
                 },
                 text: 'Reset Password',
               ),

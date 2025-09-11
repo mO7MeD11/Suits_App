@@ -43,7 +43,7 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 30),
                 CustomTextForm(
                   hint: 'enter your email',
-                  icon: Icon(Icons.email, color: Color(0xffA1A8B0)),
+                  prefixIconicon: Icon(Icons.email, color: Color(0xffA1A8B0)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "Email is required";
@@ -54,7 +54,7 @@ class _LoginState extends State<Login> {
                 SizedBox(height: 10),
                 CustomTextForm(
                   hint: 'enter your password',
-                  icon: Icon(Icons.lock, color: Color(0xffA1A8B0)),
+                  prefixIconicon: Icon(Icons.lock, color: Color(0xffA1A8B0)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'password is required';

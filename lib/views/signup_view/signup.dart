@@ -37,7 +37,7 @@ class _SignupState extends State<Signup> {
             children: [
               SizedBox(height: 15),
               CustomTextForm(
-                icon: Icon(Icons.person),
+                prefixIconicon: Icon(Icons.person),
                 hint: 'Enter your name',
                 validator: (v) {
                   if (v == null || v.isEmpty) {
@@ -48,7 +48,7 @@ class _SignupState extends State<Signup> {
               ),
               SizedBox(height: 15),
               CustomTextForm(
-                icon: Icon(Icons.email),
+                prefixIconicon: Icon(Icons.email),
                 hint: 'Enter your email',
                 validator: (p0) {
                   if (p0 == null || p0.isEmpty) {
@@ -59,7 +59,7 @@ class _SignupState extends State<Signup> {
               ),
               SizedBox(height: 15),
               CustomTextForm(
-                icon: Icon(Icons.lock),
+                prefixIconicon: Icon(Icons.lock),
                 hint: 'Enter your password',
                 validator: (p0) {
                   if (p0 == null || p0.isEmpty) {

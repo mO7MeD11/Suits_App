@@ -4,12 +4,13 @@ class CustomTextForm extends StatelessWidget {
   const CustomTextForm({
     super.key,
     required this.hint,
-    required this.icon,
+     
     this.controller,
-    this.validator,
+    this.validator,   required this.prefixIconicon,   this.suffixicon,
   });
   final String hint;
-  final Icon icon;
+  final Icon prefixIconicon;
+  final Icon? suffixicon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
 
@@ -28,7 +29,8 @@ class CustomTextForm extends StatelessWidget {
           ),
           hintStyle: TextStyle(color: Color(0xffA1A8B0)),
           hintText: hint,
-          prefixIcon: icon,
+          prefixIcon: prefixIconicon,
+          suffix: suffixicon  ,
           filled: true,
           fillColor: Color(0xffFFFFFF),
           enabledBorder: OutlineInputBorder(
