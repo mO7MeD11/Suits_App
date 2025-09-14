@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:suits_app/const.dart';
 import 'package:suits_app/models/category_model.dart';
+import 'package:suits_app/views/My_Wishlist/My_Wishlist_view.dart';
 import 'package:suits_app/widgets/custom_button.dart';
 
 class Home extends StatefulWidget {
@@ -54,7 +55,15 @@ class _HomeState extends State<Home> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite, color: Colors.grey),
+            icon: IconButton(
+              icon: Icon(Icons.favorite),
+              color: Colors.grey,
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => MyWishlistView()),
+                );
+              },
+            ),
             label: "Home",
           ),
           BottomNavigationBarItem(

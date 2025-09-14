@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:suits_app/views/Home_Views/home.dart';
+import 'package:suits_app/views/My_Wishlist/My_Wishlist_view.dart';
 import 'package:suits_app/views/splash_view.dart';
 
 void main() {
@@ -11,6 +11,6 @@ class Suits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp( home: SplashView(), debugShowCheckedModeBanner: false, ) ;
+    return  MaterialApp( home: MyWishlistView(), debugShowCheckedModeBanner: false, ) ;
   }
 }
